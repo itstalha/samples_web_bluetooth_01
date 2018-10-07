@@ -89,6 +89,25 @@ var chart = new Chart(ctx, {
 
         type: 'realtime'
 
+        {
+
+          onRefresh: function(chart) {
+
+            chart.data.datasets.forEach(function(dataset) {
+
+              dataset.data.push({
+
+                x: Date.now(),
+
+                y: Math.random()
+
+              });
+
+            });
+
+          }
+        }
+
       }]
 
     }
