@@ -12,6 +12,11 @@ index: index.html
 
 <script type="text/javascript" src="chartjs-plugin-streaming.js"></script>
 
+<script>
+
+  let dataFromSensor =[];
+
+</script>
 
 
 <p>Load Sensor Start 01 - chartjs</p>
@@ -41,6 +46,8 @@ index: index.html
 
 
 <script>
+
+
   document.querySelector('#startNotifications').addEventListener('click', function(event) {
     event.stopPropagation();
     event.preventDefault();
@@ -105,16 +112,13 @@ var chart = new Chart(ctx, {
       xAxes: [{
         
 
-
-
-
         type: 'realtime',
 
         realtime: 
 
         {
           delay: 2000,
-          
+
           onRefresh: function(chart) {
 
             chart.data.datasets.forEach(function(dataset) {
@@ -123,7 +127,8 @@ var chart = new Chart(ctx, {
 
                 x: Date.now(),
 
-                y: Math.random()
+                //y: Math.random()
+                y: dataFromSensor.slice(-1)[0]
 
               });
 

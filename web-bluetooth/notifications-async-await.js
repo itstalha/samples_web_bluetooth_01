@@ -1,7 +1,7 @@
 var myCharacteristic;
 
 async function onStartButtonClick() {
-  log('Commits: '+ 6);
+  log('Commits: '+ 7);
   let serviceUuid = document.querySelector('#service').value;
   log('0. serviceUuid > '+serviceUuid);
   if (serviceUuid.startsWith('0x')) {
@@ -70,7 +70,8 @@ function handleNotifications(event) {
   for (let i = 0; i < value.byteLength; i++) {
     a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
     b.push(('00' + value.getUint8(i).toString(10)).slice(-2));
-    
+    dataFromSensor.push(('00' + value.getUint8(i).toString(10)).slice(-2));
+     
   }
  // log('>' + a.join(' '));
   log('>' + b.join(' '));
