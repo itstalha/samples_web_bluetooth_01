@@ -4,12 +4,21 @@ async function onStartButtonClick() {
   let serviceUuid = document.querySelector('#service').value;
   if (serviceUuid.startsWith('0x')) {
     serviceUuid = parseInt(serviceUuid);
+    log('1. serviceUuid > '+serviceUuid);
   }
+
+  //Talha - Logging Service UUID
+  serviceUuid = parseInt('0000ffe0-0000-1000-8000-00805f9b34fb');
+  log('2. serviceUuid > '+serviceUuid);
 
   let characteristicUuid = document.querySelector('#characteristic').value;
   if (characteristicUuid.startsWith('0x')) {
     characteristicUuid = parseInt(characteristicUuid);
+    log('1. characteristicUuid > '+characteristicUuid);
   }
+  //Talha - Logging characteristicUuid 
+  characteristicUuid = parseInt('0000ffe1-0000-1000-8000-00805f9b34fb');
+  log('2. characteristicUuid > '+characteristicUuid);
 
   try {
     log('Requesting Bluetooth Device...');
@@ -57,5 +66,5 @@ function handleNotifications(event) {
   for (let i = 0; i < value.byteLength; i++) {
     a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
   }
-  log('>::::' + a.join(' '));
+  log('>' + a.join(' '));
 }
