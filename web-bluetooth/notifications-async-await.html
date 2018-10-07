@@ -71,9 +71,26 @@ var chart = new Chart(ctx, {
 
     datasets: [{
 
+      label: 'Dataset 1',
+
+      borderColor: 'rgb(255, 99, 132)',
+
+      backgroundColor: 'rgba(255, 99, 132, 0.5)',
+
+      lineTension: 0,
+
+      borderDash: [8, 4],
+
       data: []
 
     }, {
+
+
+      label: 'Dataset 2',
+
+      borderColor: 'rgb(54, 162, 235)',
+
+      backgroundColor: 'rgba(54, 162, 235, 0.5)',
 
       data: []
 
@@ -86,6 +103,10 @@ var chart = new Chart(ctx, {
     scales: {
 
       xAxes: [{
+        
+
+        delay: 2000,
+
 
         type: 'realtime',
 
