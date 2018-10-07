@@ -6,6 +6,12 @@ feature_id: 5264933985976320
 icon_url: icon.png
 index: index.html
 ---
+<script type="text/javascript" src="moment.js"></script>
+
+<script type="text/javascript" src="Chart.js"></script>
+
+<script type="text/javascript" src="chartjs-plugin-streaming.js"></script>
+
 
 
 <p>Load Sensor Start 01</p>
@@ -20,9 +26,19 @@ index: index.html
 {% include_relative _includes/datalist-services.html %}
 {% include_relative _includes/datalist-characteristics.html %}
 
+<canvas id="myChart"></canvas>
+
+
+
+
+
 {% include output_helper.html %}
 
 {% include js_snippet.html filename='notifications-async-await.js' %}
+
+
+
+
 
 <script>
   document.querySelector('#startNotifications').addEventListener('click', function(event) {
@@ -42,6 +58,45 @@ index: index.html
       onStopButtonClick();
     }
   });
+</script>
+
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+
+var chart = new Chart(ctx, {
+
+  type: 'line',
+
+  data: {
+
+    datasets: [{
+
+      data: []
+
+    }, {
+
+      data: []
+
+    }]
+
+  },
+
+  options: {
+
+    scales: {
+
+      xAxes: [{
+
+        type: 'realtime'
+
+      }]
+
+    }
+
+  }
+
+});
+
 </script>
 
 {% include_relative _includes/utils.html %}
