@@ -105,7 +105,7 @@ var chart = new Chart(ctx, {
       xAxes: [{
         
 
-        delay: 2000,
+
 
 
         type: 'realtime',
@@ -113,7 +113,8 @@ var chart = new Chart(ctx, {
         realtime: 
 
         {
-
+          delay: 2000,
+          
           onRefresh: function(chart) {
 
             chart.data.datasets.forEach(function(dataset) {
