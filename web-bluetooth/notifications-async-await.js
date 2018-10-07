@@ -2,6 +2,7 @@ var myCharacteristic;
 
 async function onStartButtonClick() {
   let serviceUuid = document.querySelector('#service').value;
+  log('0. serviceUuid > '+serviceUuid);
   if (serviceUuid.startsWith('0x')) {
     serviceUuid = parseInt(serviceUuid);
     log('1. serviceUuid > '+serviceUuid);
@@ -12,6 +13,7 @@ async function onStartButtonClick() {
   log('2. serviceUuid > '+serviceUuid);
 
   let characteristicUuid = document.querySelector('#characteristic').value;
+  log('0. characteristicUuid > '+characteristicUuid);
   if (characteristicUuid.startsWith('0x')) {
     characteristicUuid = parseInt(characteristicUuid);
     log('1. characteristicUuid > '+characteristicUuid);
