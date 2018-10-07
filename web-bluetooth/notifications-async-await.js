@@ -9,7 +9,7 @@ async function onStartButtonClick() {
   }
 
   //Talha - Logging Service UUID
-  serviceUuid = parseInt('0000ffe0-0000-1000-8000-00805f9b34fb');
+  serviceUuid = '0000ffe0-0000-1000-8000-00805f9b34fb';
   log('2. serviceUuid > '+serviceUuid);
 
   let characteristicUuid = document.querySelector('#characteristic').value;
@@ -19,7 +19,7 @@ async function onStartButtonClick() {
     log('1. characteristicUuid > '+characteristicUuid);
   }
   //Talha - Logging characteristicUuid 
-  characteristicUuid = parseInt('0000ffe1-0000-1000-8000-00805f9b34fb');
+  characteristicUuid = '0000ffe1-0000-1000-8000-00805f9b34fb';
   log('2. characteristicUuid > '+characteristicUuid);
 
   try {
