@@ -74,6 +74,6 @@ function handleNotifications(event) {
     dataFromSensor.push(('00' + value.getUint8(i).toString(10)).slice(-2));
      
   }
- // log('>' + a.join(' '));
+  log('>' + a.join(' '));
   log('>' + b.join(' '));
 }
