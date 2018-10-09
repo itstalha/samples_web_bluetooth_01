@@ -84,8 +84,9 @@ function handleNotifications(event) {
     c.push(temp);
     if ((temp != 's') && (temp != 'e'))
     {
+      c.push(temp);
       d.push(temp);
-      dataFromSensor.push(temp);
+      
     }
     
    // dataFromSensor.push(('00' + value.getUint8(i).toString(10)).slice(-2));
@@ -93,6 +94,9 @@ function handleNotifications(event) {
   }
   //log('a>' + a.join(' '));
   //log('b>' + b.join(' '));
+  arr = arr.map(d);
+  dataFromSensor.push(arr);
   log('c> ' + c.join(' '));
   log('d> ' + d.join(' '));
+  log('arr> ' + arr);
 }
