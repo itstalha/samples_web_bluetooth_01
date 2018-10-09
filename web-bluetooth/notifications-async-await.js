@@ -102,5 +102,5 @@ function handleNotifications(event) {
 
   d = d.map(Number);
   dataFromSensor.push(d);
-  log('arr> ' + arr);
+  log('arr> ' + d);
 }
