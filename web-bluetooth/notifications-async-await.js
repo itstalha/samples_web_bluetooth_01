@@ -94,7 +94,8 @@ function handleNotifications(event) {
   }
   //log('a>' + a.join(' '));
   //log('b>' + b.join(' '));
-  arr = arr.map(d);
+  
+  var arr = arr.map(d);
   dataFromSensor.push(arr);
   log('c> ' + c.join(' '));
   log('d> ' + d.join(' '));
