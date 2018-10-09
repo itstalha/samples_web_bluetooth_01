@@ -82,7 +82,7 @@ function handleNotifications(event) {
     
     temp =String.fromCharCode(value.getUint8(i));
     c.push(temp);
-    if ((temp != 's') (temp != 'e'))
+    if ((temp != 's') || (temp != 'e'))
     {
       d.push(temp);
       dataFromSensor.push(temp);
