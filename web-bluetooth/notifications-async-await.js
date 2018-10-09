@@ -63,29 +63,36 @@ async function onStopButtonClick() {
 
 function handleNotifications(event) {
   let value = event.target.value;
-  let a = [];
-  let b = [];
+  //let a = [];
+  //let b = [];
   let c = [];
   let d = [];
   // Convert raw data bytes to hex values just for the sake of showing something.
   // In the "real" world, you'd use data.getUint8, data.getUint16 or even
   // TextDecoder to process raw data bytes.
-  log('value>' + value);
-  log('value.toString()>' + value.toString());
-
+ // log('value>' + value);
+ // log('value.toString()>' + value.toString());
+ var temp = '';
 
   for (let i = 0; i < value.byteLength; i++) {
 
 
-    a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
-    b.push(('00' + value.getUint8(i).toString(10)).slice(-2));
-    c.push(value.getUint8(i).toString(10));
-    d.push(String.fromCharCode(value.getUint8(i)));
-    dataFromSensor.push(('00' + value.getUint8(i).toString(10)).slice(-2));
+  //  a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
+  //  b.push(('00' + value.getUint8(i).toString(10)).slice(-2));
+    
+    temp =String.fromCharCode(value.getUint8(i));
+    c.push(temp);
+    if ((temp != 's') (temp != 'e'))
+    {
+      d.push(temp);
+      dataFromSensor.push(temp);
+    }
+    
+   // dataFromSensor.push(('00' + value.getUint8(i).toString(10)).slice(-2));
      
   }
-  log('a>' + a.join(' '));
-  log('b>' + b.join(' '));
+  //log('a>' + a.join(' '));
+  //log('b>' + b.join(' '));
   log('c> ' + c.join(' '));
   log('d> ' + d.join(' '));
 }
