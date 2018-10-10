@@ -99,13 +99,13 @@ function handleNotifications(event) {
   //var str = "- 0 . 0 5";
   //str = str.replace(/\s+/g, '');
 
-  floatnumber = floatnumber.replace(/\s+/g, '');
+  floatNumber = floatNumber.replace(/\s+/g, '');
 
   
   log('c> ' + c.join(' '));
   log('d> ' + d.join(' '));
   log('floatnumber> ' + floatNumber );
-  dataFromSensor.push(floatnumber);
+  dataFromSensor.push(floatNumber);
   
 
   //d = d.map(Number);
