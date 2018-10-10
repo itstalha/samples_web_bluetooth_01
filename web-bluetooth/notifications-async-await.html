@@ -125,7 +125,16 @@ var chart = new Chart(ctx, {
           }
         }
 
-      }]
+      }],
+
+      yAxes: [{
+            display: true,
+            ticks: {
+                min: 0,
+                max: 5,
+                stepSize: 50
+            }
+        }]
 
     }
 
