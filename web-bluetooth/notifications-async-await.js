@@ -105,6 +105,10 @@ function handleNotifications(event) {
   log('c> ' + c.join(' '));
   log('d> ' + d.join(' '));
   log('floatnumber> ' + floatNumber );
+  if (floatNumber < 0)
+  {
+    floatNumber = 0;
+  }
   dataFromSensor.push(floatNumber);
   
 
