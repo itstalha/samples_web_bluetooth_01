@@ -73,6 +73,7 @@ function handleNotifications(event) {
  // log('value>' + value);
  // log('value.toString()>' + value.toString());
  var temp = '';
+ var floatNumber = '';
 
   for (let i = 0; i < value.byteLength; i++) {
 
@@ -84,7 +85,7 @@ function handleNotifications(event) {
     c.push(temp);
     if ((temp != 's') && (temp != 'e'))
     {
-      c.push(temp);
+      floatNumber = floatNumber + temp;
       d.push(temp);
       
     }
@@ -95,12 +96,19 @@ function handleNotifications(event) {
   //log('a>' + a.join(' '));
   //log('b>' + b.join(' '));
   
-  
+  //var str = "- 0 . 0 5";
+  //str = str.replace(/\s+/g, '');
+
+  floatnumber = floatnumber.replace(/\s+/g, '');
+
   
   log('c> ' + c.join(' '));
   log('d> ' + d.join(' '));
+  log('floatnumber> ' + floatNumber );
+  dataFromSensor.push(floatnumber);
+  
 
-  d = d.map(Number);
-  dataFromSensor.push(d);
-  log('arr> ' + d);
+  //d = d.map(Number);
+  //dataFromSensor.push(d);
+  //log('arr> ' + d);
 }
