@@ -1,7 +1,15 @@
 var myCharacteristic;
+var repCount = 0;
+var repThreshold = 1;
+var secThreshold = 1;
+var nowDate ;
+var nowSec ;  
+var startSec;
+var repStart = false;
+var repCounted = false;
 
-async function onStartButtonClick() {
-  dataFromSensor.push(Math.random());
+async function onStartButtonClick(){
+  //dataFromSensor.push(Math.random());
   ////log('Commits: '+ 18);
 
 
@@ -56,19 +64,18 @@ function handleNotifications(event) {
   //let b = [];
   let c = [];
   let d = [];
+  
+
   // Convert raw data bytes to hex values just for the sake of showing something.
   // In the "real" world, you'd use data.getUint8, data.getUint16 or even
   // TextDecoder to process raw data bytes.
  // log('value>' + value);
  // log('value.toString()>' + value.toString());
- var temp = '';
- var floatNumber = '';
+ let temp = '';
+ let floatNumber = '';
 
   for (let i = 0; i < value.byteLength; i++) {
 
-
-  //  a.push('0x' + ('00' + value.getUint8(i).toString(16)).slice(-2));
-  //  b.push(('00' + value.getUint8(i).toString(10)).slice(-2));
     
     temp =String.fromCharCode(value.getUint8(i));
     c.push(temp);
@@ -79,14 +86,11 @@ function handleNotifications(event) {
       
     }
     
-   // dataFromSensor.push(('00' + value.getUint8(i).toString(10)).slice(-2));
      
   }
   //log('a>' + a.join(' '));
   //log('b>' + b.join(' '));
-  
-  //var str = "- 0 . 0 5";
-  //str = str.replace(/\s+/g, '');
+
 
   floatNumber = floatNumber.replace(/\s+/g, '');
 
@@ -100,7 +104,42 @@ function handleNotifications(event) {
   }
   dataFromSensor.push(floatNumber);
   document.getElementById("liveForce").innerHTML = floatNumber;
-  //d = d.map(Number);
-  //dataFromSensor.push(d);
-  //log('arr> ' + d);
+
+  nowDate = new Date();
+  nowSec = nowDate.getSeconds();  
+
+  if ( (floatNumber > repThreshold ) && (repCounted == false))
+  {
+    
+    if(repStart == false)
+    {
+      startSec = nowSec;
+      repStart = true;
+
+    }
+    
+    else
+    {
+      
+      if((nowSec - startSec) > secThreshold)
+
+      {
+        repCount++;
+        document.getElementById("liveRep").innerHTML = repCount;
+        repStart = false;
+        repCounted = true;
+      }
+    }
+
+  }
+  
+  else if (floatNumber < repThreshold )
+
+  {
+    repCounted = false;
+
+  }
+
+
+
 }
