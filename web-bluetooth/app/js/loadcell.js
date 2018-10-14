@@ -1,7 +1,10 @@
 var myCharacteristic;
 var repCount = 0;
-var repThreshold = 1;
+var setCount = 0;
+var setCount = 0;
+var repThreshold = 2;
 var secThreshold = 1;
+var repsPerSet = 3;
 var nowDate ;
 var nowSec ;  
 var startSec;
@@ -125,6 +128,17 @@ function handleNotifications(event) {
 
       {
         repCount++;
+
+        setComplete = Math.floor(repCount / repsPerSet);
+        
+        if(setComplete > 0)
+        {
+          setCount++;
+          document.getElementById("liveSet").innerHTML = setCount;
+          repCount=0;
+        }
+
+
         document.getElementById("liveRep").innerHTML = repCount;
         repStart = false;
         repCounted = true;
